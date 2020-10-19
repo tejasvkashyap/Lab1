@@ -10,15 +10,19 @@ public class register
     Scanner s = new Scanner(System.in);
     public register()
     {
-       System.out.println("Welcome!");
+       //stringbuffer class
+       StringBuffer wel = new StringBuffer("Welcome!");
+       System.out.println(wel);
     }
     // Costructer overloading
     public register(int marks)
     {
-        System.out.println("Welcome!");
+        //stringbuffer class
+        StringBuffer wel = new StringBuffer("Welcome!");
+        System.out.println(wel);
         this.marks = marks;
     }
-    public void add()
+    public final void add()
     {
         System.out.println("Enter the Name:");
         name = s.nextLine();
