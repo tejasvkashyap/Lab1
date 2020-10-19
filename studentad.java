@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 import java.io.InputStreamReader;
  
-class attendance extends register
+final class attendance extends register
 {
     String nam;
     static int c;
@@ -152,11 +152,15 @@ public class studentad
         Scanner get = new Scanner(System.in);
         //command-line argument
         if(args.length>0){
-			register Obj = new attendance(args[0]);
+			attendance Obj = new attendance(args[0]);
         }
 		else{
 			attendance Obj = new attendance();
          }
-        System.out.println("BYE...!");
+        // string class
+        char[] bye = { 'B', 'Y', 'E', '.', '.', '.', '!' };
+        String bye1 = new String(bye);  
+        System.out.println(bye1);
+        //System.out.println("BYE...!");
     }
 }
