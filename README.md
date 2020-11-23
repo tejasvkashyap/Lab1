@@ -1,1 +1,1 @@
-# Lab1
+# Attendance Management System
