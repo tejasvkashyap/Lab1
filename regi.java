@@ -1,5 +1,6 @@
 
+
 // interface and abstraction
-interface regi{
+interface regi<String>{
        abstract String newstd();
 }
