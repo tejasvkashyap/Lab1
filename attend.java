@@ -5,17 +5,19 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import packages.*;
 
-final public class attend extends stud
+final public class attend<T> extends stud
 {
-        
+        //user defined type for generic
+        T obj,ob;
         private static int c,i,n;
         public String st,p;
-        String[] cms = {"Tejas","Sajet","Laxmy","Rahul","Ankur","Adharsh","abhay","bharath","karthik","angel"};
-        String[] cme = {"Dhanush","supreeth","namrutha","yashasvini","sparsha","pani","manasa","harshitha","anjali","yana"};
+        String[] cms = {"Tejas","Sajet","Laxmy","Rahul","Ankur","Adharsh","Abhay","Bharath","Karthik","Angel"};
+        String[] cme = {"Dhanush","Supreeth","Namrutha","Yashasvini","Sparsha","Pani","Manasa","Harshitha","Anjali","Yana"};
         String[][] sect = {cms,cme};
         int[] absent = new int[10];
         Scanner get = new Scanner(System.in);
-        attend(){
+        attend(T obj){
+           this.obj = obj;
            do
            {
            System.out.println("**************************");
@@ -30,7 +32,8 @@ final public class attend extends stud
                add();
                break;
              case 2:
-               display();
+               //System.out.println(this.obj);
+               display(this.obj);
                break;
              case 3:
                newstd();
@@ -44,8 +47,10 @@ final public class attend extends stud
             }while(c != 4);
          }
  
-         attend(String st){
+       //constructor overloading
+         attend(T obj, String st){
            this.st = st;
+           this.obj = obj;
            do
            {
            System.out.println("**************************");
@@ -62,7 +67,8 @@ final public class attend extends stud
                }catch(Exception m){System.out.println("Exception occured:"+m);}
                break;
              case 2:
-               display();
+               //System.out.println(this.obj);
+               display(this.obj);
                break;
              case 3:
                newstd();
@@ -95,9 +101,9 @@ final public class attend extends stud
           }catch(Exception e){
               e.printStackTrace();
 	   }
-          display();
       }
 
+      // method overloading
       void add(String p)throws myexception{
           this.p = p;
           System.out.println(this.p);
@@ -117,7 +123,6 @@ final public class attend extends stud
                int num = get.nextInt();
                absent[j] = num;
           }
-          display();
       }
 
       public String newstd(){
@@ -141,13 +146,22 @@ final public class attend extends stud
        return null; 
       }
 
-      void display(){
+      void display(T ob){
+          this.ob = ob;
+          System.out.println("Subject:"+this.ob);
+          List<String> list = new ArrayList<String>();   //collection class
           try
           {
           System.out.println("The absentees are:");
           for (int j = 0;j <n; j++){
-               System.out.println(sect[i][absent[j]] + " ");
+               //System.out.println(sect[i][absent[j]] + " ");
+               list.add(sect[i][absent[j]]);
            }
+           Collections.sort(list);                // collection interface
+           Iterator itr=list.iterator();  
+           while(itr.hasNext()){  
+           System.out.println(itr.next());  
+           } 
            }catch(Exception e){
               e.printStackTrace();
 	   }
